@@ -44,17 +44,26 @@ const app = new Vue({
             }
         ],
 
-        methods: {
-            cambiaImmagine( indice ) {
-                this.indiceSlides = indice;
-            },
-            nextSlide() {
-                this.indiceSlides = this.indiceSlides + 1;
-                if (this.indiceSlides > this.slides.lenght - 1) {
-                    this.indiceSlides = 0;
-                }
-                console.log(nextSlides());
-            },
+      
+        
+    },
+
+    methods: {
+        cambiaImmagine( indice ) {
+            this.indiceSlides = indice;
+        },
+        incrementa() {
+            this.indiceSlides++
+            if (this.indiceSlides > this.slides.lenght - 1) {
+                this.indiceSlides = 0;
+            }
+        },
+        decrementa() {
+            this.indiceSlides--
+            if (this.indiceSlides < 0) {
+                this.indiceSlides = this.indiceSlides.lenght -1;
+            }
+            
         },
     }
 
