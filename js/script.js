@@ -14,8 +14,7 @@ const app = new Vue({
     el: "#app",
     data: {
 
-        indiceSlides: 0,
-    
+        // active : "active",
         slides : [
             {
                 image: 'img/01.jpg',
@@ -43,9 +42,7 @@ const app = new Vue({
                 text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
             }
         ],
-
-      
-        
+        indiceSlides: 0,
     },
 
     methods: {
@@ -53,20 +50,19 @@ const app = new Vue({
             this.indiceSlides = indice;
         },
         incrementa() {
-            this.indiceSlides++
-            if (this.indiceSlides > this.slides.lenght - 1) {
+            this.indiceSlides++;
+            if (this.indiceSlides > this.slides.length - 1) {
                 this.indiceSlides = 0;
             }
         },
         decrementa() {
-            this.indiceSlides--
+            this.indiceSlides--;
             if (this.indiceSlides < 0) {
-                this.indiceSlides = this.indiceSlides.lenght -1;
+                this.indiceSlides = this.slides.length -1;
             }
-            
+            console.log();
         },
     }
-
 })
 
 
