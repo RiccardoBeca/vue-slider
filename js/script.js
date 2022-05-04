@@ -1,11 +1,6 @@
 /* 
-
 Descrizione:
 Partendo dal markup consegnato rendere dinamici tutti i contenuti (foto e testi) e al click su una thumb, visualizzare in grande l’immagine corrispondente
-
-
-
-
 */
 
 
@@ -13,8 +8,9 @@ const app = new Vue({
 
     el: "#app",
     data: {
-
-        // active : "active",
+        
+        indiceSlides: 0,
+        // data property con array di oggetti
         slides : [
             {
                 image: 'img/01.jpg',
@@ -42,25 +38,28 @@ const app = new Vue({
                 text: 'Et temporibus voluptatum suscipit tempore aliquid deleniti aut veniam inventore eligendi ex ad ullam, cumque provident totam omnis.',
             }
         ],
-        indiceSlides: 0,
     },
 
     methods: {
+        // con  questa funzione associo la proprieta' indiceSlides come parametro della funzione in modo che esso possa incrementare o decrementare quando andro' a chiamare le successive funzioni 
         cambiaImmagine( indice ) {
             this.indiceSlides = indice;
         },
+        // chiamando la funzione l'indice verra' incrementato
         incrementa() {
             this.indiceSlides++;
             if (this.indiceSlides > this.slides.length - 1) {
                 this.indiceSlides = 0;
             }
+            console.log(this.incrementa);
         },
+        // chiamando la funzione l'indice verra' incrementato
         decrementa() {
             this.indiceSlides--;
             if (this.indiceSlides < 0) {
                 this.indiceSlides = this.slides.length -1;
             }
-            console.log();
+            console.log(this.decrementa);
         },
     }
 })

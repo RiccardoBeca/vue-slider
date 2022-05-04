@@ -16,6 +16,8 @@
             <div class="slider-wrapper" tabindex="0">
 
                 <div class="item">
+                    <!-- Rendo gli elementi necessari dinamici -->
+                    <!-- ******arrayDiOggetti[indiceSingoloOggetto].proprietaOggetto**** -->
                     <img :src="slides[indiceSlides].image" :alt="slides[indiceSlides].title" />
                     <div class="text">
                         <h3>{{slides[indiceSlides].title}}</h3>
@@ -26,18 +28,19 @@
                 </div>
 
                 <div class="thumbs">
+                    <!-- al click del bottone chiamo le funzioni per incrementare/decrementare il valore dell'indice dell'array di oggetti -->
                     <div @click="decrementa" class="prev" ></div>
                     <div @click="incrementa" class="next" ></div>
-                    <div v-for="(slide, indice) in slides" class="thumb"
-                    :class="'active'"
+                    <!-- con v-for eseguo un ciclo che accetera' come parametri il singolo oggetto e l'indice  -->
+                    <!-- usando v-bind (:) aggiungo classi collegando html e js| tramite un operatore ternario creo una condizione per la quale aggiungo la classe "active" nel caso in cui (indice) e' uguale ad indiceSlides -->
+                    <div v-for="(slide, indice) in slides" :class="
+                    ['thumb', ( indice == indiceSlides ) ? 'active' : '']"
                     @click="cambiaImmagine( indice )">
                         <img :src="slide.image" :alt="slide.title"/>
                     </div>
                 </div>
-
             </div>
         </div>
-
     </div>
 
     <script src="js/script.js"></script>
